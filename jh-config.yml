@@ -1,2 +1,24 @@
 proxy:
     secretToken: ee2908ab729a022652d747cc6ea24e869d1fed3ade00125e92d4607e7cf0ee7f
+
+hub:
+  extraEnv:
+    OAUTH2_AUTHORIZE_URL: http://ad14fde3faac811e89952021d923673c-597240792.us-west-2.elb.amazonaws.com/auth/realms/master/protocol/openid-connect/auth
+    OAUTH2_TOKEN_URL: http://ad14fde3faac811e89952021d923673c-597240792.us-west-2.elb.amazonaws.com/auth/realms/master/protocol/openid-connect/token
+    OAUTH_CALLBACK_URL: http://a04425a66aa3a11e89952021d923673c-183303353.us-west-2.elb.amazonaws.com/hub/oauth_callback
+auth:
+  admin:
+    users:
+      - admin
+  type: custom
+  custom:
+    className: oauthenticator.generic.GenericOAuthenticator
+    config:
+      client_id: "JupyterHub"
+      client_secret: "e1e4e740-1cbe-43fd-b089-26ca052b45b6"
+      token_url: http://ad14fde3faac811e89952021d923673c-597240792.us-west-2.elb.amazonaws.com/auth/realms/master/protocol/openid-connect/token
+      userdata_url: http://ad14fde3faac811e89952021d923673c-597240792.us-west-2.elb.amazonaws.com/auth/realms/master/protocol/openid-connect/userinfo
+      userdata_method: GET
+      userdata_params: {'state': 'state'}
+      username_key: preferred_username
+    
