@@ -1,5 +1,13 @@
 proxy:
-    secretToken: ee2908ab729a022652d747cc6ea24e869d1fed3ade00125e92d4607e7cf0ee7f
+  secretToken: ee2908ab729a022652d747cc6ea24e869d1fed3ade00125e92d4607e7cf0ee7f
+  https:
+    type: letsencrypt
+    hosts:
+      - "kc-hub.jupyter.sh"
+      - "a04425a66aa3a11e89952021d923673c-183303353.us-west-2.elb.amazonaws.com"
+    letsencrypt:
+      contactEmail: "jupyterops@gmail.com"
+    
 
 hub:
   extraEnv:
